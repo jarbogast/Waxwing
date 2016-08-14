@@ -10,7 +10,6 @@
 		AB6974011D5FC5D4006B59F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6974001D5FC5D4006B59F6 /* AppDelegate.swift */; };
 		AB6974031D5FC5D4006B59F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6974021D5FC5D4006B59F6 /* ViewController.swift */; };
 		AB6974061D5FC5D4006B59F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6974041D5FC5D4006B59F6 /* Main.storyboard */; };
-		AB6974091D5FC5D4006B59F6 /* Waxwing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB6974071D5FC5D4006B59F6 /* Waxwing.xcdatamodeld */; };
 		AB69740B1D5FC5D4006B59F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB69740A1D5FC5D4006B59F6 /* Assets.xcassets */; };
 		AB69740E1D5FC5D4006B59F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB69740C1D5FC5D4006B59F6 /* LaunchScreen.storyboard */; };
 		AB6974191D5FC5D4006B59F6 /* WaxwingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6974181D5FC5D4006B59F6 /* WaxwingTests.swift */; };
@@ -31,7 +30,6 @@
 		AB6974001D5FC5D4006B59F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB6974021D5FC5D4006B59F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AB6974051D5FC5D4006B59F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AB6974081D5FC5D4006B59F6 /* Waxwing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Waxwing.xcdatamodel; sourceTree = "<group>"; };
 		AB69740A1D5FC5D4006B59F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB69740D1D5FC5D4006B59F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB69740F1D5FC5D4006B59F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 				AB69740A1D5FC5D4006B59F6 /* Assets.xcassets */,
 				AB69740C1D5FC5D4006B59F6 /* LaunchScreen.storyboard */,
 				AB69740F1D5FC5D4006B59F6 /* Info.plist */,
-				AB6974071D5FC5D4006B59F6 /* Waxwing.xcdatamodeld */,
 			);
 			path = Waxwing;
 			sourceTree = "<group>";
@@ -206,7 +203,6 @@
 			files = (
 				AB6974031D5FC5D4006B59F6 /* ViewController.swift in Sources */,
 				AB6974011D5FC5D4006B59F6 /* AppDelegate.swift in Sources */,
-				AB6974091D5FC5D4006B59F6 /* Waxwing.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,19 +420,6 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		AB6974071D5FC5D4006B59F6 /* Waxwing.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				AB6974081D5FC5D4006B59F6 /* Waxwing.xcdatamodel */,
-			);
-			currentVersion = AB6974081D5FC5D4006B59F6 /* Waxwing.xcdatamodel */;
-			path = Waxwing.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = AB6973F51D5FC5D4006B59F6 /* Project object */;
 }
