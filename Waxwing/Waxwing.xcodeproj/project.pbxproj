@@ -12,7 +12,8 @@
 		AB6974061D5FC5D4006B59F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6974041D5FC5D4006B59F6 /* Main.storyboard */; };
 		AB69740B1D5FC5D4006B59F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB69740A1D5FC5D4006B59F6 /* Assets.xcassets */; };
 		AB69740E1D5FC5D4006B59F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB69740C1D5FC5D4006B59F6 /* LaunchScreen.storyboard */; };
-		AB6974191D5FC5D4006B59F6 /* WaxwingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6974181D5FC5D4006B59F6 /* WaxwingTests.swift */; };
+		AB69742A1D60D825006B59F6 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6974291D60D825006B59F6 /* Transaction.swift */; };
+		AB69742C1D60D8B8006B59F6 /* TransactionTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB69742B1D60D8B8006B59F6 /* TransactionTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,8 +35,9 @@
 		AB69740D1D5FC5D4006B59F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB69740F1D5FC5D4006B59F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB6974141D5FC5D4006B59F6 /* WaxwingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaxwingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB6974181D5FC5D4006B59F6 /* WaxwingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxwingTests.swift; sourceTree = "<group>"; };
 		AB69741A1D5FC5D4006B59F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB6974291D60D825006B59F6 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		AB69742B1D60D8B8006B59F6 /* TransactionTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		AB6973FF1D5FC5D4006B59F6 /* Waxwing */ = {
 			isa = PBXGroup;
 			children = (
+				AB6974231D60D772006B59F6 /* LedgerKit */,
 				AB6974001D5FC5D4006B59F6 /* AppDelegate.swift */,
 				AB6974021D5FC5D4006B59F6 /* ViewController.swift */,
 				AB6974041D5FC5D4006B59F6 /* Main.storyboard */,
@@ -90,10 +93,26 @@
 		AB6974171D5FC5D4006B59F6 /* WaxwingTests */ = {
 			isa = PBXGroup;
 			children = (
-				AB6974181D5FC5D4006B59F6 /* WaxwingTests.swift */,
 				AB69741A1D5FC5D4006B59F6 /* Info.plist */,
+				AB69742B1D60D8B8006B59F6 /* TransactionTestCase.swift */,
 			);
 			path = WaxwingTests;
+			sourceTree = "<group>";
+		};
+		AB6974231D60D772006B59F6 /* LedgerKit */ = {
+			isa = PBXGroup;
+			children = (
+				AB6974241D60D780006B59F6 /* Model */,
+			);
+			name = LedgerKit;
+			sourceTree = "<group>";
+		};
+		AB6974241D60D780006B59F6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AB6974291D60D825006B59F6 /* Transaction.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +171,7 @@
 					AB6974131D5FC5D4006B59F6 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 4J237JQ3KN;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = AB6973FC1D5FC5D4006B59F6;
 					};
@@ -203,6 +223,7 @@
 			files = (
 				AB6974031D5FC5D4006B59F6 /* ViewController.swift in Sources */,
 				AB6974011D5FC5D4006B59F6 /* AppDelegate.swift in Sources */,
+				AB69742A1D60D825006B59F6 /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB6974191D5FC5D4006B59F6 /* WaxwingTests.swift in Sources */,
+				AB69742C1D60D8B8006B59F6 /* TransactionTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,11 +388,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 4J237JQ3KN;
 				INFOPLIST_FILE = WaxwingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anothercupofcocoa.WaxwingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Waxwing.app/Waxwing";
 			};
@@ -381,6 +404,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 4J237JQ3KN;
 				INFOPLIST_FILE = WaxwingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -410,6 +434,7 @@
 				AB69741F1D5FC5D4006B59F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AB6974201D5FC5D4006B59F6 /* Build configuration list for PBXNativeTarget "WaxwingTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +443,7 @@
 				AB6974221D5FC5D4006B59F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
