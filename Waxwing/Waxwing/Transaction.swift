@@ -11,6 +11,7 @@ import Foundation
 struct Transaction {
     let date: String
     let thirdPartyName: String
+    let entries: [Entry]
 }
 
 extension Transaction {
@@ -22,5 +23,12 @@ extension Transaction {
         tokens.removeFirst()
         tokens = tokens.filter { $0.characters.count > 0 }
         thirdPartyName = tokens.joined(separator: " ")
+        
+        var parsedEntries = [Entry]()
+        for i in 1..<transactionLines.count {
+            let string = transactionLines[i]
+            parsedEntries.append(Entry(string: string))
+        }
+        entries = parsedEntries
     }
 }
