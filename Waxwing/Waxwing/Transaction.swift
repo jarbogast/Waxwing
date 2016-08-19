@@ -10,7 +10,7 @@ import Foundation
 
 struct Transaction {
     let date: String
-    let thirdPartyName: String
+    let payee: String
     let entries: [Entry]
 }
 
@@ -22,7 +22,7 @@ extension Transaction {
         
         tokens.removeFirst()
         tokens = tokens.filter { $0.characters.count > 0 }
-        thirdPartyName = tokens.joined(separator: " ")
+        payee = tokens.joined(separator: " ")
         
         var parsedEntries = [Entry]()
         for i in 1..<transactionLines.count {

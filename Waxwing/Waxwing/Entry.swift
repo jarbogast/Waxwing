@@ -9,7 +9,7 @@
 import Foundation
 
 struct Entry {
-    let payee: String
+    let accountName: String
     let amount: Int64
 }
 
@@ -17,7 +17,7 @@ extension Entry {
     init(string: String) {
         var tokens = string.components(separatedBy: CharacterSet.whitespaces)
         tokens = tokens.filter { $0.characters.count > 0 }
-        payee = tokens[0]
+        accountName = tokens[0]
         
         let amountString = tokens[1]
         let numberFormatter = NumberFormatter()
@@ -31,5 +31,5 @@ extension Entry {
 extension Entry: Equatable {}
 
 func ==(lhs: Entry, rhs: Entry) -> Bool {
-    return lhs.payee == rhs.payee && lhs.amount == rhs.amount
+    return lhs.accountName == rhs.accountName && lhs.amount == rhs.amount
 }

@@ -16,7 +16,7 @@ class TransactionTestCase: XCTestCase {
         let transaction = Transaction(transactionLines: transactionLines)
         
         XCTAssertEqual(transaction.date, "2015/10/12")
-        XCTAssertEqual(transaction.thirdPartyName, "Exxon")
+        XCTAssertEqual(transaction.payee, "Exxon")
     }
     
     func testTransactionWithTwoEntries() {
@@ -25,11 +25,11 @@ class TransactionTestCase: XCTestCase {
                                           "   Liabilities:MasterCard   $-10.00"]
         let transaction = Transaction(transactionLines: transactionLines)
         
-        let expectedEntry1 = Entry(payee: "Expenses:Auto:Gas", amount: 1000)
-        let expectedEntry2 = Entry(payee: "Liabilities:MasterCard", amount: -1000)
+        let expectedEntry1 = Entry(accountName: "Expenses:Auto:Gas", amount: 1000)
+        let expectedEntry2 = Entry(accountName: "Liabilities:MasterCard", amount: -1000)
         
         XCTAssertEqual(transaction.date, "2015/10/12")
-        XCTAssertEqual(transaction.thirdPartyName, "Exxon")
+        XCTAssertEqual(transaction.payee, "Exxon")
         XCTAssertEqual(transaction.entries, [expectedEntry1, expectedEntry2])
     }
 }
