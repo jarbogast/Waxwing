@@ -11,6 +11,7 @@ import Foundation
 struct Transaction {
     let date: String
     let payee: String
+    let checkNumber: String?
     let entries: [Entry]
 }
 
@@ -18,10 +19,18 @@ extension Transaction {
     init(transactionLines: [String]) {
         let firstLine = transactionLines.first!
         var tokens = firstLine.components(separatedBy: CharacterSet.whitespaces)
-        date = tokens[0]
-        
-        tokens.removeFirst()
         tokens = tokens.filter { $0.characters.count > 0 }
+
+        date = tokens[0]
+        tokens.removeFirst()
+        
+        if tokens[0].hasPrefix("(") {
+            checkNumber = tokens[0].trimmingCharacters(in: CharacterSet(charactersIn: "()"))
+            tokens.removeFirst()
+        } else {
+            checkNumber = nil
+        }
+        
         payee = tokens.joined(separator: " ")
         
         var parsedEntries = [Entry]()
