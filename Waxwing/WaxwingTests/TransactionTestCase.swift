@@ -33,6 +33,17 @@ class TransactionTestCase: XCTestCase {
         assert(transactionLines: transactionLines, resultInTransactionWithDate: "9/29", payee: "Pacific Bell", checkNumber: "1023", entries: expectedEntries)
     }
     
+    func testTransactionWithImplicitAmount() {
+        let transactionLines = ["9/29 (1023) Pacific Bell",
+                                "Expenses:Utilities:Phone  $23.00",
+                                "Assets:Checking"]
+        
+        let expectedEntry1 = Entry(accountName: "Expenses:Utilities:Phone", amount: 2300)
+        let expectedEntry2 = Entry(accountName: "Assets:Checking", amount: -2300)
+        let expectedEntries = [expectedEntry1, expectedEntry2]
+        assert(transactionLines: transactionLines, resultInTransactionWithDate: "9/29", payee: "Pacific Bell", checkNumber: "1023", entries: expectedEntries)
+    }
+    
     func assert(transactionLines: [String], resultInTransactionWithDate date: String, payee: String, checkNumber: String?, entries: [Entry]) {
         let transaction = Transaction(transactionLines: transactionLines)
         

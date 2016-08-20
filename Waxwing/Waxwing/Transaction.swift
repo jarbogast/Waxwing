@@ -38,6 +38,18 @@ extension Transaction {
             let string = transactionLines[i]
             parsedEntries.append(Entry(string: string))
         }
-        entries = parsedEntries
+        
+        let implicitAmountEntries = parsedEntries.filter { $0.amount == nil }
+        let explicitAmountEntries = parsedEntries.filter { $0.amount != nil }
+        if implicitAmountEntries.count == 1 {
+            var explicitTotal: Int64 = 0;
+            for entry in explicitAmountEntries {
+                explicitTotal += entry.amount!
+            }
+            let explicitEntry = Entry(accountName: implicitAmountEntries[0].accountName, amount: -explicitTotal)
+            entries = explicitAmountEntries + [explicitEntry]
+        } else {
+            entries = parsedEntries
+        }
     }
 }
