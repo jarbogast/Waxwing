@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB0889401D64B31900130821 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB08893F1D64B31900130821 /* Entry.swift */; };
+		AB0889401D64B31900130821 /* Posting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB08893F1D64B31900130821 /* Posting.swift */; };
 		AB6974011D5FC5D4006B59F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6974001D5FC5D4006B59F6 /* AppDelegate.swift */; };
 		AB6974031D5FC5D4006B59F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6974021D5FC5D4006B59F6 /* ViewController.swift */; };
 		AB6974061D5FC5D4006B59F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6974041D5FC5D4006B59F6 /* Main.storyboard */; };
@@ -28,7 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AB08893F1D64B31900130821 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		AB08893F1D64B31900130821 /* Posting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Posting.swift; sourceTree = "<group>"; };
 		AB6973FD1D5FC5D4006B59F6 /* Waxwing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waxwing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6974001D5FC5D4006B59F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB6974021D5FC5D4006B59F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,8 +38,8 @@
 		AB69740F1D5FC5D4006B59F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB6974141D5FC5D4006B59F6 /* WaxwingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaxwingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB69741A1D5FC5D4006B59F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB6974291D60D825006B59F6 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		AB69742B1D60D8B8006B59F6 /* TransactionTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTestCase.swift; sourceTree = "<group>"; };
+		AB6974291D60D825006B59F6 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Transaction.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		AB69742B1D60D8B8006B59F6 /* TransactionTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TransactionTestCase.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				AB6974291D60D825006B59F6 /* Transaction.swift */,
-				AB08893F1D64B31900130821 /* Entry.swift */,
+				AB08893F1D64B31900130821 /* Posting.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -224,7 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB0889401D64B31900130821 /* Entry.swift in Sources */,
+				AB0889401D64B31900130821 /* Posting.swift in Sources */,
 				AB6974031D5FC5D4006B59F6 /* ViewController.swift in Sources */,
 				AB6974011D5FC5D4006B59F6 /* AppDelegate.swift in Sources */,
 				AB69742A1D60D825006B59F6 /* Transaction.swift in Sources */,

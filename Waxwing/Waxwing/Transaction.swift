@@ -12,7 +12,7 @@ struct Transaction {
     let date: String
     let payee: String
     let checkNumber: String?
-    let entries: [Entry]
+    let postings: [Posting]
 }
 
 extension Transaction {
@@ -33,23 +33,23 @@ extension Transaction {
         
         payee = tokens.joined(separator: " ")
         
-        var parsedEntries = [Entry]()
+        var parsedPostings = [Posting]()
         for i in 1..<transactionLines.count {
             let string = transactionLines[i]
-            parsedEntries.append(Entry(string: string))
+            parsedPostings.append(Posting(string: string))
         }
         
-        let implicitAmountEntries = parsedEntries.filter { $0.amount == nil }
-        let explicitAmountEntries = parsedEntries.filter { $0.amount != nil }
-        if implicitAmountEntries.count == 1 {
+        let implicitAmountPostings = parsedPostings.filter { $0.amount == nil }
+        let explicitAmountPostings = parsedPostings.filter { $0.amount != nil }
+        if implicitAmountPostings.count == 1 {
             var explicitTotal: Int64 = 0;
-            for entry in explicitAmountEntries {
-                explicitTotal += entry.amount!
+            for posting in explicitAmountPostings {
+                explicitTotal += posting.amount!
             }
-            let explicitEntry = Entry(accountName: implicitAmountEntries[0].accountName, amount: -explicitTotal)
-            entries = explicitAmountEntries + [explicitEntry]
+            let explicitPosting = Posting(accountName: implicitAmountPostings[0].accountName, amount: -explicitTotal)
+            postings = explicitAmountPostings + [explicitPosting]
         } else {
-            entries = parsedEntries
+            postings = parsedPostings
         }
     }
 }

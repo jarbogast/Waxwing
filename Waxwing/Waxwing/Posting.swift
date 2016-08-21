@@ -1,5 +1,5 @@
 //
-//  Entry.swift
+//  Posting.swift
 //  Waxwing
 //
 //  Created by Jonathan Arbogast on 8/17/16.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Entry {
+struct Posting {
     let accountName: String
     let amount: Int64?
 }
 
-extension Entry {
+extension Posting {
     init(string: String) {
         var tokens = string.components(separatedBy: CharacterSet.whitespaces)
         tokens = tokens.filter { $0.characters.count > 0 }
@@ -32,8 +32,8 @@ extension Entry {
     }
 }
 
-extension Entry: Equatable {}
+extension Posting: Equatable {}
 
-func ==(lhs: Entry, rhs: Entry) -> Bool {
+func ==(lhs: Posting, rhs: Posting) -> Bool {
     return lhs.accountName == rhs.accountName && lhs.amount == rhs.amount
 }
