@@ -36,7 +36,9 @@ extension Transaction {
         var parsedPostings = [Posting]()
         for i in 1..<transactionLines.count {
             let string = transactionLines[i]
-            parsedPostings.append(Posting(string: string))
+            if let posting = Posting(string: string) {
+                parsedPostings.append(posting)
+            }
         }
         
         let implicitAmountPostings = parsedPostings.filter { $0.amount == nil }

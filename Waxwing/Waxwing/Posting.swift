@@ -14,8 +14,10 @@ struct Posting {
 }
 
 extension Posting {
-    init(string: String) {
+    init?(string: String) {
         var tokens = string.components(separatedBy: CharacterSet.whitespaces)
+        guard tokens.count != 2 else { return nil }
+        
         tokens = tokens.filter { $0.characters.count > 0 }
         accountName = tokens[0]
         
