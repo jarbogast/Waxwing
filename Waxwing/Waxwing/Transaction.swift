@@ -16,7 +16,9 @@ struct Transaction {
 }
 
 extension Transaction {
-    init(transactionLines: [String]) {
+    init?(transactionLines: [String]) {
+        guard transactionLines.count >= 3 else { return nil }
+        
         let firstLine = transactionLines.first!
         var tokens = firstLine.components(separatedBy: CharacterSet.whitespaces)
         tokens = tokens.filter { $0.characters.count > 0 }
@@ -38,6 +40,8 @@ extension Transaction {
             let string = transactionLines[i]
             if let posting = Posting(string: string) {
                 parsedPostings.append(posting)
+            } else {
+                return nil
             }
         }
         

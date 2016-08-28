@@ -46,12 +46,30 @@ class TransactionTestCase: XCTestCase {
         assert(transactionLines: transactionLines, resultInTransactionWithDate: "9/29", payee: "Pacific Bell", checkNumber: "1023", postings: expectedPostings)
     }
     
-    func assert(transactionLines: [String], resultInTransactionWithDate date: String, payee: String, checkNumber: String?, postings: [Posting]) {
+    func testTransactionWithNoPostings() {
+        assertTransactionLinesResultInInvalidTransaction(["9/29 (1023) Pacific Bell"])
+    }
+    
+    func testTransactionWithInsufficientWhitespaceInPosting() {
+        assertTransactionLinesResultInInvalidTransaction(["9/29 (1023) Pacific Bell",
+                                                          "Expenses:Utilities:Phone  $23.00",
+                                                          "Expenses:Utilities:Cable $35.00",
+                                                          "Assets:Checking"])
+    }
+    
+    func assertTransactionLinesResultInInvalidTransaction(_ transactionLines: [String]) {
         let transaction = Transaction(transactionLines: transactionLines)
-        
-        XCTAssertEqual(transaction.date, date)
-        XCTAssertEqual(transaction.payee, payee)
-        XCTAssertEqual(transaction.checkNumber, checkNumber)
-        XCTAssertEqual(transaction.postings, postings)
+        XCTAssertNil(transaction)
+    }
+    
+    func assert(transactionLines: [String], resultInTransactionWithDate date: String, payee: String, checkNumber: String?, postings: [Posting]) {
+        if let transaction = Transaction(transactionLines: transactionLines) {
+            XCTAssertEqual(transaction.date, date)
+            XCTAssertEqual(transaction.payee, payee)
+            XCTAssertEqual(transaction.checkNumber, checkNumber)
+            XCTAssertEqual(transaction.postings, postings)
+        } else {
+            XCTFail("Invalid transaction")
+        }
     }
 }
