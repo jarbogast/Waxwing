@@ -11,7 +11,7 @@ import XCTest
 
 class TransactionTestCase: XCTestCase {
     
-    func testTransactionWithTwoposting() {
+    func testTransactionWithTwoPostings() {
         let transactionLines = ["2015/10/12  Exxon",
                                 "   Expenses:Auto:Gas         $10.00",
                                 "   Liabilities:MasterCard   $-10.00"]
@@ -36,11 +36,13 @@ class TransactionTestCase: XCTestCase {
     func testTransactionWithImplicitAmount() {
         let transactionLines = ["9/29 (1023) Pacific Bell",
                                 "Expenses:Utilities:Phone  $23.00",
+                                "Expenses:Utilities:Cable  $35.00",
                                 "Assets:Checking"]
         
         let expectedPosting1 = Posting(accountName: "Expenses:Utilities:Phone", amount: 2300)
-        let expectedPosting2 = Posting(accountName: "Assets:Checking", amount: -2300)
-        let expectedPostings = [expectedPosting1, expectedPosting2]
+        let expectedPosting2 = Posting(accountName: "Expenses:Utilities:Cable", amount: 3500)
+        let expectedPosting3 = Posting(accountName: "Assets:Checking", amount: -5800)
+        let expectedPostings = [expectedPosting1, expectedPosting2, expectedPosting3]
         assert(transactionLines: transactionLines, resultInTransactionWithDate: "9/29", payee: "Pacific Bell", checkNumber: "1023", postings: expectedPostings)
     }
     
