@@ -57,6 +57,13 @@ class TransactionTestCase: XCTestCase {
                                                           "Assets:Checking"])
     }
     
+    func testTransactionWithUnequalPostings() {
+        assertTransactionLinesResultInInvalidTransaction(["9/29 (1023) Pacific Bell",
+                                                          "Expenses:Utilities:Phone  $23.00",
+                                                          "Expenses:Utilities:Cable  $35.00",
+                                                          "Assets:Checking           $-99.00"])
+    }
+    
     func assertTransactionLinesResultInInvalidTransaction(_ transactionLines: [String]) {
         let transaction = Transaction(transactionLines: transactionLines)
         XCTAssertNil(transaction)

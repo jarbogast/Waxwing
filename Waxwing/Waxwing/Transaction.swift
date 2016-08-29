@@ -57,5 +57,14 @@ extension Transaction {
         } else {
             postings = parsedPostings
         }
+        
+        var transactionTotal: Int64 = 0
+        for posting in postings {
+            if let amount = posting.amount {
+                transactionTotal += amount
+            }
+        }
+        
+        guard transactionTotal == 0 else { return nil }
     }
 }
